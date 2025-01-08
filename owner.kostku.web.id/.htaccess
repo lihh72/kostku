@@ -1,0 +1,7 @@
+# Redirect semua permintaan HTTP ke HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Mengarahkan laman utama ke dashboard.php
+DirectoryIndex dashboard.php
