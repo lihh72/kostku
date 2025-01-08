@@ -1,0 +1,15 @@
+# Redirect semua permintaan HTTP ke HTTPS
+RewriteEngine On
+
+# Memastikan URL menggunakan HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Mengarahkan laman utama ke index.php jika tidak ada file lain yang diminta
+DirectoryIndex index.php
+ErrorDocument 400 https://kostku.web.id/index.php
+ErrorDocument 401 https://kostku.web.id/index.php
+ErrorDocument 403 https://kostku.web.id/index.php
+ErrorDocument 404 https://kostku.web.id/index.php
+ErrorDocument 500 https://kostku.web.id/index.php
+ErrorDocument 503 https://kostku.web.id/index.php
